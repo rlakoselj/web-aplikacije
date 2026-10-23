@@ -1,0 +1,23 @@
+{
+  "name": "web-aplikacije",
+  "version": "1.0.0",
+  "description": "moj aprvo nešto",
+  "homepage": "https://github.com/rlakoselj/web-aplikacije#readme",
+  "bugs": {
+    "url": "https://github.com/rlakoselj/web-aplikacije/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlakoselj/web-aplikacije.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
