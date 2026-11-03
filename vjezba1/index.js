@@ -1,6 +1,7 @@
 // const express = require('express'); 
 
 import express from "express"
+import path from "path";
 
 const app = express();
 
@@ -12,8 +13,15 @@ let PORT = 3000;
 // drugi parametar = HTTP response
 app.get("/", (req, res)=> {
     console.log("pozvana je GET metoda na defaultnom endpintu!");
-    res.send("pozdrav iz express.js servera")
+    res.sendFile(path.resolve("public/index.html"));
 })
+
+
+app.get("/about", (req, res) => {
+    res.sendFile(path.resolve("public/about.html"));
+})
+
+
 
 //ovo je u stcvarnosti spremljeno u DB(skoro nikad na serveru)
 //ovo je in memory data
@@ -23,11 +31,26 @@ let pizze = [
     { id: 3, naziv:"cetiri sira", cijena: 50 }
 ]
 
+
+let korisnici = [
+    { id: 1, ime: "Rita", prezime: "Marga" },
+    { id: 2, ime: "Čoza", prezime: "Kapri" },
+    { id: 3, ime: "Sira", prezime: "Četiri" }
+]
+
+app.get("/users", (req, res) => {
+    res.json(korisnici);
+})
+
+
+//HTTP klijent (web preglednik) šalje HTTP GET zahjtev na Express.js poslužitelj GET /pizze
 app.get("/pizze", (req,res)=>{
     console.log("pozvana ej GET motoda na /pizze endpointu")
     res.json(pizze);
 })
 
+
+//poslužitelj posluša na portu 3000
 app.listen(PORT, () => {
     console.log(`Server jušto dela na ${PORT}`)
 })
